@@ -12,7 +12,8 @@ match priority:
     case _:
         reminder = f"Reminder: '{task}' has an unknown priority level."
 
-if time_bound == "yes":
-    reminder += " It requires immediate attention today!"
+print(f"Reminder: '{task}' is a {priority.upper()} priority task." + 
+      (" It requires immediate attention today!" if time_bound.lower() == "yes" else ""))
 
-print(f"{reminder}")
+
+
