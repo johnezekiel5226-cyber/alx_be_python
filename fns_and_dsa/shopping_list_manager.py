@@ -6,7 +6,7 @@ def display_menu():
 	print("4.Exit")
 
 def add_item():
-	item = input("Enter item to add: ").strip()
+	item = input("Enter the item to add: ").strip()
 	if item:
 		shopping_list.append(item)
 		print(f"'{item}' has been added to the shopping list.")
