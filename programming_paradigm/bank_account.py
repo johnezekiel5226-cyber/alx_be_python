@@ -27,5 +27,4 @@ class BankAccount:
 account = BankAccount(120)
 account.deposit(67.0)
 account.withdraw(30)
-account.display_balance()
 
