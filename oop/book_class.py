@@ -16,7 +16,7 @@ class Book:
         """
         Destructor that prints a message when the Book object is deleted.
         """
-        print(f"Deleting '{self.title}'")
+        print(f"Deleting {self.title}")  # ✅ Removed quotes to match expected output
 
     def __str__(self):
         """
@@ -25,7 +25,7 @@ class Book:
         Returns:
             str: A string in the format "(title) by (author), published in (year)".
         """
-        return f"'{self.title}' by {self.author}, published in {self.year}"
+        return f"{self.title} by {self.author}, published in {self.year}"  # ✅ Removed quotes
 
     def __repr__(self):
         """
@@ -37,4 +37,3 @@ class Book:
                  Book('title', 'author', year)
         """
         return f"Book('{self.title}', '{self.author}', {self.year})"
-
