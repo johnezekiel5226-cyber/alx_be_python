@@ -15,7 +15,7 @@ class Book:
 class EBook(Book):
     def __init__(self, title, author, file_size):
         super().__init__(title, author)
-        self.file_size = file_size  # in MB
+        self.file_size_kb = file_size
 
     def get_details(self):
         return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}MB"
@@ -31,7 +31,7 @@ class PrintBook(Book):
         self.page_count = page_count
 
     def get_details(self):
-        return f"PrintBook: {self.title} by {self.author}, Pages: {self.page_count}"
+        return f"PrintBook: {self.title} by {self.author}, Pages Count: {self.page_count}"
 
     def __str__(self):
         return self.get_details()
@@ -52,5 +52,5 @@ class Library:
         if not self.books:
             print("Library is empty.")
         else:
-            for idx, book in enumerate(self.books, 1):
+            for book in self.books:
                 print(f"{idx}. {book}")  # Uses __str__ method
