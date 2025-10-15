@@ -13,12 +13,12 @@ class Book:
 
 # Derived class - EBook
 class EBook(Book):
-    def __init__(self, title, author, file_size):
+    def __init__(self, title, author, file_size_kb):
         super().__init__(title, author)
-        self.file_size_kb = file_size
+        self.file_size_kb = file_size_kb  # File size in KB
 
     def get_details(self):
-        return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}MB"
+        return f"EBook: {self.title} by {self.author}, File Size: {self.file_size_kb}KB"
 
     def __str__(self):
         return self.get_details()
@@ -31,16 +31,16 @@ class PrintBook(Book):
         self.page_count = page_count
 
     def get_details(self):
-        return f"PrintBook: {self.title} by {self.author}, Pages Count: {self.page_count}"
+        return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
 
     def __str__(self):
         return self.get_details()
 
 
-# Library class using composition
+# Composition: Library class
 class Library:
     def __init__(self):
-        self.books = []  # Stores instances of Book, EBook, or PrintBook
+        self.books = []  # List of Book, EBook, or PrintBook instances
 
     def add_book(self, book):
         if isinstance(book, Book):
@@ -49,8 +49,5 @@ class Library:
             print("Only Book instances can be added.")
 
     def list_books(self):
-        if not self.books:
-            print("Library is empty.")
-        else:
-            for book in self.books:
-                print(f"{idx}. {book}")  # Uses __str__ method
+        for book in self.books:
+            print(book)
